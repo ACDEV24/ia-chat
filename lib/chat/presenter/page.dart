@@ -15,7 +15,10 @@ class ChatPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ChatCubit(
         usecase: ChatUsecase(
-          repository: ChatRepositoryGPT(),
+          repository: const ChatRepositoryGPT(
+            apiKey: 'YOUR_API_KEY',
+            promt: 'YOUR_PROMPT',
+          ),
         ),
       )..onOpen(),
       child: const Scaffold(

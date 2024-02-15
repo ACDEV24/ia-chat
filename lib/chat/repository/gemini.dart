@@ -1,13 +1,14 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:ia_chat/chat/domain/entities/message.dart';
 import 'package:ia_chat/chat/domain/repository/repository.dart';
 import 'package:oxidized/oxidized.dart';
 
 class ChatRepositoryGemini extends ChatRepository {
-  final token = 'YOUR_OPENAI_API_KEY';
-  final promt = '''YOUR_PROMPT''';
+  const ChatRepositoryGemini({
+    required String apiKey,
+    required String promt,
+  }) : super(apiKey: apiKey, promt: promt);
 
   @override
   Future<Result<List<Message>, Exception>> getMessages() {
@@ -20,11 +21,6 @@ class ChatRepositoryGemini extends ChatRepository {
     String message,
     List<Message> lastMessages,
   ) async* {
-    final apiKey = Platform.environment['API_KEY'];
-    if (apiKey == null) {
-      exit(1);
-    }
-
     final model = GenerativeModel(
       model: 'gemini-pro',
       apiKey: apiKey,
@@ -37,7 +33,7 @@ class ChatRepositoryGemini extends ChatRepository {
     );
 
     final content = [
-      Content.text('''YOUR_PROMPT'''),
+      Content.text(promt),
       ...lastMessages.map((e) => Content.text(e.text)),
     ];
 

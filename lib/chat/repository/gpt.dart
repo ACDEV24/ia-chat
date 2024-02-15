@@ -8,8 +8,10 @@ import 'package:ia_chat/chat/repository/models/message.dart';
 import 'package:oxidized/oxidized.dart';
 
 class ChatRepositoryGPT extends ChatRepository {
-  final token = 'YOUR_OPENAI_API_KEY';
-  final promt = '''YOUR_PROMPT''';
+  const ChatRepositoryGPT({
+    required String apiKey,
+    required String promt,
+  }) : super(apiKey: apiKey, promt: promt);
 
   @override
   Future<Result<List<Message>, Exception>> getMessages() {
@@ -49,7 +51,7 @@ class ChatRepositoryGPT extends ChatRepository {
       },
       header: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token',
+        'Authorization': 'Bearer $apiKey',
         'OpenAI-Organization': 'YOUR_ORGANIZATION_ID',
       },
     ).map(
