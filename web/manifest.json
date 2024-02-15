@@ -1,6 +1,6 @@
 {
-    "name": "iaq",
-    "short_name": "iaq",
+    "name": "ia_chat",
+    "short_name": "ia_chat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

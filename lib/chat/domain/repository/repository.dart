@@ -1,4 +1,4 @@
-import 'package:iaq/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
 import 'package:oxidized/oxidized.dart';
 
 abstract class ChatRepository {

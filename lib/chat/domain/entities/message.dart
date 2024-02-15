@@ -26,4 +26,4 @@ class Message {
   }
 }
 
-enum MessageType { user, tulia }
+enum MessageType { user, assistant }

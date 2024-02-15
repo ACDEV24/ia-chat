@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_client_sse/constants/sse_request_type_enum.dart';
 import 'package:flutter_client_sse/flutter_client_sse.dart';
-import 'package:iaq/chat/domain/entities/message.dart';
-import 'package:iaq/chat/domain/repository/repository.dart';
-import 'package:iaq/chat/repository/models/message.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/repository/repository.dart';
+import 'package:ia_chat/chat/repository/models/message.dart';
 import 'package:oxidized/oxidized.dart';
 
-class ChatRepositoryImpl extends ChatRepository {
+class ChatRepositoryGPT extends ChatRepository {
   final token = 'YOUR_OPENAI_API_KEY';
   final promt = '''YOUR_PROMPT''';
 
@@ -26,7 +26,7 @@ class ChatRepositoryImpl extends ChatRepository {
       id: DateTime.now().toString(),
       text: '',
       time: DateTime.now(),
-      type: MessageType.tulia,
+      type: MessageType.assistant,
     );
 
     yield* SSEClient.subscribeToSSE(
@@ -40,7 +40,7 @@ class ChatRepositoryImpl extends ChatRepository {
           {'role': 'system', 'content': promt},
           ...lastMessages.map((m) {
             return {
-              'role': m.type == MessageType.tulia ? 'assistant' : 'user',
+              'role': m.type == MessageType.assistant ? 'assistant' : 'user',
               'content': m.text,
             };
           }).toList(),

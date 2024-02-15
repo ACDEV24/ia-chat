@@ -1,4 +1,4 @@
-import 'package:iaq/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
 
 class ChatMessage extends Message {
   const ChatMessage({
@@ -84,7 +84,7 @@ class ChatCompletion {
     return ChatMessage(
       id: id,
       text: content ?? '',
-      type: MessageType.tulia,
+      type: MessageType.assistant,
       time: DateTime.fromMillisecondsSinceEpoch(created * 1000, isUtc: true),
     );
   }

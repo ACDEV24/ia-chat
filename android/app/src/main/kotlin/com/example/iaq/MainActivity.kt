@@ -1,4 +1,4 @@
-package com.example.iaq
+package com.example.ia_chat
 
 import io.flutter.embedding.android.FlutterActivity
 

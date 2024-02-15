@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iaq/chat/domain/entities/message.dart';
-import 'package:iaq/chat/domain/usecase/usecase.dart';
-import 'package:iaq/chat/presenter/cubit/cubit.dart';
-import 'package:iaq/chat/presenter/widgets/link_text.dart';
-import 'package:iaq/chat/repository/repository.dart';
-import 'package:iaq/chat/shared/constants/regex.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/usecase/usecase.dart';
+import 'package:ia_chat/chat/presenter/cubit/cubit.dart';
+import 'package:ia_chat/chat/presenter/widgets/link_text.dart';
+import 'package:ia_chat/chat/repository/gpt.dart';
+import 'package:ia_chat/chat/shared/constants/regex.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -15,22 +15,21 @@ class ChatPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ChatCubit(
         usecase: ChatUsecase(
-          repository: ChatRepositoryImpl(),
+          repository: ChatRepositoryGPT(),
         ),
       )..onOpen(),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Stack(
             children: [
               Center(
-                child: Image.asset(
-                  'assets/tulia.png',
-                  height: 150.0,
+                child: FlutterLogo(
+                  size: 150.0,
                 ),
               ),
-              const _Messages(),
-              const Align(
+              _Messages(),
+              Align(
                 alignment: Alignment.bottomCenter,
                 child: _Input(),
               ),

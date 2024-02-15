@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "iaq" "\0"
+            VALUE "FileDescription", "ia_chat" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "iaq" "\0"
+            VALUE "InternalName", "ia_chat" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "iaq.exe" "\0"
-            VALUE "ProductName", "iaq" "\0"
+            VALUE "OriginalFilename", "ia_chat.exe" "\0"
+            VALUE "ProductName", "ia_chat" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

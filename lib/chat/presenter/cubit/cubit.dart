@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iaq/chat/domain/entities/message.dart';
-import 'package:iaq/chat/domain/usecase/usecase.dart';
-import 'package:iaq/chat/repository/models/message.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/usecase/usecase.dart';
+import 'package:ia_chat/chat/repository/models/message.dart';
 
 part 'state.dart';
 

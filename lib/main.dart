@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iaq/chat/presenter/page.dart';
+import 'package:ia_chat/chat/presenter/page.dart';
 
 void main() => runApp(const MyApp());
 

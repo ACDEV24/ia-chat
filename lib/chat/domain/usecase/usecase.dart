@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:iaq/chat/domain/entities/message.dart';
-import 'package:iaq/chat/domain/repository/repository.dart';
+import 'package:ia_chat/chat/domain/entities/message.dart';
+import 'package:ia_chat/chat/domain/repository/repository.dart';
 import 'package:oxidized/oxidized.dart';
 
 class ChatUsecase {
@@ -51,7 +51,7 @@ class ChatUsecase {
           id: message.id,
           text: message.text,
           time: message.time,
-          type: MessageType.tulia,
+          type: MessageType.assistant,
         );
 
         messagesCopy.add(currentMessage);
@@ -69,8 +69,7 @@ class ChatUsecase {
   }
 
   Stream<List<Message>> onOpen() async* {
-    const helloMessage =
-        'Hola, soy Tulia, tu asistente virtual. ¿En qué puedo ayudarte?';
+    const helloMessage = 'Hi, I am your assistant. How can I help you today?';
 
     String message = '';
 
@@ -82,7 +81,7 @@ class ChatUsecase {
           id: 'first-message',
           text: message,
           time: DateTime.now(),
-          type: MessageType.tulia,
+          type: MessageType.assistant,
         ),
       ];
 
